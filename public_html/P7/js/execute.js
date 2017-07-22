@@ -1,0 +1,12 @@
+var b = prompt("Enter the variable 1") ;
+a = Number(b);
+var c = prompt  ( "Enter the variable 2") ;
+b = Number (c);
+console.log (+ a + " TO " +b+ " is "+ (a^b)  );
+console.log ( +b +" TO "+a+ " is "+ (b^a)  );
+console.log ( "The multiplication between " +a+ " and " +b+ "  is "+ a*b  );
+console.log ( "The division between " +a+ " and " + b + "is "+ a/b  );
+console.log ( "The division between " +b+  " and "+ a+ " is "+ b/a  );
+console.log ( "The division module between " +a+ " and " +b+ " is "+ a%b  );
+console.log ( "The subtraction between " +a+ " and " +b+  " is "+ (a-b)  );
+console.log ( "The sum between " +a+ " and " +b+ " is "+ (a+b) );
