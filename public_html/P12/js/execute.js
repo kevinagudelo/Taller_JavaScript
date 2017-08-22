@@ -1,16 +1,15 @@
-//PUNTO 1
-var as = "*" ;
-var n = " ";
-var x = 1 ;
-var max = 7 ;
-
-do {
-  n = n + as ;
-  console.log(n ); 
-  x++;
-}
-while  ( x <= 7);
-  
+var x = '     *';
+var y = '*';
+var j = 1;
+ while (j === 1) {
+ 	for (var i = 0; i < 5; i++) {
+ 		if (x === '     *') {
+ 			console.log(x);
+ 		}
+ 		console.log(x = x.slice(1) + y);
+ 	}
+ 	j++;
+ }
 
 
 

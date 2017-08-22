@@ -1,43 +1,61 @@
-var  arreglo =[] ;  
-
-var p=0;
-var z=0;
-var sumap=0;
-var sumaz=0;
-
-
-	for ( i=1 ; i<=10; i++) {
-	arreglo[i] = prompt( "enter num ");
-      
-	if (arreglo[i] % 2 === 0 ){ 
-	p=p+1;
-	 sumap=(sumap+arreglo[i]);
-  }else{
-	 z=z+1;
-	sumaz=sumaz+arreglo[i];
-	
-  }
-	
+ class menu {
+   constructor (){
+     do {
+   this.seleccion =Number(prompt( "1. Make a sum\n\
+    2. Perform a rest\n\
+    3. Perform a multiplication\n\
+    4.Make a division\n\
+    0.Exit the program"));
+     }while (this.seleccion > 4);
+     return this.seleccion ;
     }
-	console.log( " The pairs were	"+p);
-	console.log (" The odd ones were	"+z);
-	console.log(" The sum of the pairs is "+sumap);
-	console.log(" The sum of the odd numbers is " +sumaz);
-	console.log("The average of even numbers is" +(sumap/p));
-    console.log(  " The average of the odd numbers is "+ (sumaz/z));
-    console.log( " Even numbers are " );
-		for (i=1 ; i<=10; i++ ){
-	
-			if (arreglo[i] % 2===0) { 
-              console.log( arreglo[i]);
-            } 
-          }
-	
-		console.log(" Prime numbers are " );
-		for ( i=1 ; i<=10; i++ ){
-	
-			if( arreglo[i] % 2=== 1){  
-			console.log (arreglo[i]);
-            }
-         }
-
+  }	
+ class operation extends menu {
+  constructor (){
+   super ();
+   this.menu;
+   }
+  
+ sum (){
+   if (this.seleccion === 1){
+     console.clear();
+   let v1=Number(prompt("	Enter a variable "));
+   let v2=Number(prompt( " Enter another variable "));
+   console.log( "The result of adding	"+v1+"	y "+v2+" Is "+ parseInt(v1+v2));
+   
+ }
+}
+ rest (){
+ if (this.seleccion === 2){  
+ let v1=Number(prompt("	Enter a variable "));
+  let v2=Number(prompt( " Enter another variable "));
+  console.log( "The result of rest	"+v1+"	y "+v2+" Is "+(v1-v2));
+  }
+ }
+ multiplication (){
+  if (this.seleccion === 3){
+     let v1=Number(prompt("	Enter a variable "));
+     let v2=Number(prompt( " Enter another variable "));
+     console.log( "The result of multiplication	"+v1+"	y "+v2+" Is "+(v1*v2));
+  }
+ }
+ divition () {
+   if (this.seleccion === 4){
+ let v1=Number(prompt("	Enter a variable "));
+  let v2=Number(prompt( " Enter another variable "));
+  console.log( "The result of division	"+v1+"	y "+v2+" Is "+(v1/v2));
+  }
+}
+ exit (){
+   if (this.seleccion === 0 ){
+     alert("Bye");
+   }
+ }
+}
+ let shit = new operation ();
+ 
+shit.sum();
+shit.rest();
+shit.multiplication();
+shit.divition();
+shit.exit();

@@ -26,11 +26,10 @@ var arreglo =  [] ;
 
 function aleato (){
 
-
+let max=Number(prompt("Ingrese el maximo del arreglo"));
  for  (i = 0 ; i < max ;i++){
    arreglo[i]=Math.round((Math.random())*100);
  }
- //console.log (arreglo);
  return max;
 }
 function sequential (){
@@ -169,44 +168,52 @@ function sele() {
 				}
 			}
 		}
-//        for(i=0;i<arreglo.length;i++)
-//	{
-//		console.log(arreglo[i]);
-//	}
-		return arreglo;
+        return arreglo;
 	}
 
 
-while (selection!==0){
+function validate (){
   var selection=menu();
   switch (selection) {
     case 1:
-      var max=Number(prompt("Ingrese el maximo del arreglo"));
+      
       var array= aleato();
+      validate ();
       break;
     case 2:
      sequential(array);
+      validate ();
      break;
    case 3:
    buble(array);
+    validate ();
     break;
   case 4:
   bublebi(array);
+   validate ();
   break;
 case 5:
 insertion(array);
+ validate ();
 break;
 case 6:
 console.log(mergeSort(arreglo));
+ validate ();
 break;
 case 7:
-sele(array);
+sele(array); 
+validate ();
 break
 case 8:
-console.log(arreglo);
+console.log(arreglo); 
+validate ();
+case 0:
+alert ("Byee");
+break;
 
-    default:
+    default:validate ();
       
       break;
   }
 }
+validate ();
