@@ -1,5 +1,5 @@
   class main {
-    constructor{
+    constructor () {
       this.configG = [];
        this.empleados = []; 
   }
@@ -243,7 +243,7 @@
     do {
       var salario = parseInt(prompt(`Salario del nuevo empleado?`));
       for (config of this.empleados) {
-        for (e in config) {
+        for (let e in config) {
           if (e === 'salary') {
             flag = config[e];
           }
@@ -307,7 +307,7 @@
     do {
       var salario = parseInt(prompt(`Salario del nuevo empleado?`));
       for (config of this.configG) {
-        for (e in config) {
+        for (let e in config) {
           if (e === 'salary') {
             flag = config[e];
           }
@@ -386,7 +386,7 @@
       var tmp = 0;
       var salary = 0;
       var id = '';
-      emple.forEach((e) => {
+       this.emple.forEach((e) => {
         if (e.cedula === find) {
           id = e.cedula;
           tmp++;
@@ -467,12 +467,12 @@
           vHoursLab
         };
         this.horasLaboradas = JSON.parse(localStorage.getItem('horasLaboradas'));
-        if (horasLaboradas === null) {
+        if ( this.horasLaboradas === null) {
           let horasLaboradas = [hoursLaborales];
           localStorage.setItem('horasLaboradas', JSON.stringify(horasLaboradas));
         } else {
-          horasLaboradas.push(hoursLaborales);
-          localStorage.setItem('horasLaboradas', JSON.stringify(horasLaboradas));
+           this.horasLaboradas.push(hoursLaborales);
+          localStorage.setItem('horasLaboradas', JSON.stringify( this.horasLaboradas));
         }
         this.validateContinuar();
       } else {
@@ -586,7 +586,7 @@
       var name = '';
       var cargo = '';
       var paguis = 0;
-      empleados.forEach((e) => {
+      this.empleados.forEach((e) => {
         if (e.cedula === find) {
           tmp++;
           name = e.nombre;
@@ -601,7 +601,7 @@
       });
       if (tmp === 0) {
         alert('El empleado no se encuentra registrado en la base de datos');
-        validateContinuar();
+        this.validateContinuar();
       } else {
         console.log(`===================================================`);
         console.log('||                 Empresa   '+config[0].name+'      ||');
@@ -611,67 +611,67 @@
        }
     }
   }
-  function validateContinuar() {
-    let option = continuar();
-    switch (option) {
+   validateContinuar() {
+    this.option = this.continuar();
+    switch (this.option) {
       case 1:
-        validateGestion();
+        this.validateGestion();
         break;
       case 2:
-        hoursLab();
+        this.hoursLab();
         break;
       case 3:
-        nomina();
+        this.nomina();
         break;
       case 4:
-        pago();
+        this.pago();
         break;
       case 8:
-        validate ();
+        this.validate ();
       case 0:
         alert('Adios');
         break;
       default:
-        validateContinuar();
+        this.validateContinuar();
         break;
     }
   }
-  function validate() {
-    let option = config();
-    switch (option) {
+  validate() {
+    this.option = this.config();
+    switch (this.option) {
       case 1:
-        validateConfiguration();
+        this.validateConfiguration();
         break;
       case 2:
-        validateContinuar();
+         this.validateContinuar();
         break;
       case 8 : 
-        inicio ();
+         this.inicio ();
         break;
       case 0:
         alert('Adios');
         break;
       default:
-        validate();
+         this.validate();
         break;
     }
   }
 
-  function config2() {
+  config2() {
     let option = Number(prompt(`1. Configure
   2. Continue
   8  Select language  
   0. Exit`));
     return option;
   }
-  function idioma2() {
+  idioma2() {
     let option = parseInt(prompt(`Select the software language
   1. Spanish
   2. English
   0. Exit`));
     return option;
   }
-  function configuration2() {
+ configuration2() {
     let option = parseInt(prompt(`1. Name of the company
   2. Minimum wage
   3. How many minimum wages are conserved at the source
@@ -683,161 +683,161 @@
   0. Quit the program`));
     return option;
   }
-  function name2() {
+ name2() {
     let name = prompt('Enter the name of your company');
-    global = {
+     this.global = {
       name
     };
-    configG = JSON.parse(localStorage.getItem('config'));
+     this.configG = JSON.parse(localStorage.getItem('config'));
     if (JSON.parse(localStorage.getItem('config')) === null) {
-      configG = [
-        global
+       this.configG = [
+         this.global
       ];
     } else {
-      configG.push(global);
+       this.configG.push( this.global);
     }
     localStorage.setItem('config', JSON.stringify(configG));
-    validateconfiguration2();
-    return configG;
+     this.validateconfiguration2();
+    return  this.configG;
   }
-  function salaryMin2() {
+ salaryMin2() {
     let salary = parseInt(prompt("Enter your company's salary"));
-    global = {
+     this.global = {
       salary
     };
-    configG = JSON.parse(localStorage.getItem('config'));
+     this.configG = JSON.parse(localStorage.getItem('config'));
     if (JSON.parse(localStorage.getItem('config')) === null) {
-      configG = [
-        global
+       this.configG = [
+         this.global
       ];
     } else {
-      configG.push(global);
+       this.configG.push( this.global);
     }
     localStorage.setItem('config', JSON.stringify(configG));
-    validateconfiguration2();
-    return configG;
+    this.validateconfiguration2();
+    return  this.configG;
   }
-  function minRetention2() {
+minRetention2() {
     let mRetention = parseInt(prompt('How many minimum wages does the withholding tax charge?'));
-    global = {
+     this.global = {
       mRetention
     };
-    configG = JSON.parse(localStorage.getItem('config'));
+     this.configG = JSON.parse(localStorage.getItem('config'));
     if (JSON.parse(localStorage.getItem('config')) === null) {
-      configG = [
-        global
+       this.configG = [
+         this.global
       ];
     } else {
-      configG.push(global);
+       this.configG.push( this.global);
     }
-    localStorage.setItem('config', JSON.stringify(configG));
-    validateconfiguration2();
-    return configG;
+    localStorage.setItem('config', JSON.stringify( this.configG));
+     this.validateconfiguration2();
+    return  this.configG;
   }
-  function percentage2() {
+  percentage2() {
     let percentageR = parseInt(prompt('Percentage withholding at source? (%)'));
-    global = {
+     this.global = {
       percentageR
     };
-    configG = JSON.parse(localStorage.getItem('config'));
+     this.configG = JSON.parse(localStorage.getItem('config'));
     if (JSON.parse(localStorage.getItem('config')) === null) {
-      configG = [
-        global
+       this.configG = [
+         this.global
       ];
     } else {
-      configG.push(global);
+       this.configG.push( this.global);
     }
-    localStorage.setItem('config', JSON.stringify(configG));
-    validateconfiguration2();
-    return configG;
+    localStorage.setItem('config', JSON.stringify( this.configG));
+     this.validateconfiguration2();
+    return  this.configG;
   }
-  function maxSalary2() {
+ maxSalary2() {
     let mSalary = parseInt(prompt('How many minimum wages do you need to pay for transport aid?'));
-    global = {
+     this.global = {
       mSalary
     };
-    configG = JSON.parse(localStorage.getItem('config'));
+     this.configG = JSON.parse(localStorage.getItem('config'));
     if (JSON.parse(localStorage.getItem('config')) === null) {
-      configG = [
-        global
+       this.configG = [
+         this.global
       ];
     } else {
-      configG.push(global);
+       this.configG.push( this.global);
     }
-    localStorage.setItem('config', JSON.stringify(configG));
-    validateconfiguration2();
-    return configG;
+    localStorage.setItem('config', JSON.stringify( this.configG));
+     this.validateconfiguration2();
+    return  this.configG;
   }
-  function aux2() {
+ aux2() {
     let aux = parseInt(prompt('How much does transport help cost?'));
-    global = {
+     this.global = {
       aux
     };
-    configG = JSON.parse(localStorage.getItem('config'));
+     this.configG = JSON.parse(localStorage.getItem('config'));
     if (JSON.parse(localStorage.getItem('config')) === null) {
-      configG = [
-        global
+       this.configG = [
+         this.global
       ];
     } else {
-      configG.push(global);
+       this.configG.push( this.global);
     }
-    localStorage.setItem('config', JSON.stringify(configG));
-    validateconfiguration2();
-    return configG;
+    localStorage.setItem('config', JSON.stringify( this.configG));
+     this.validateconfiguration2();
+    return  this.configG;
   }
-  function horasM2() {
+  horasM2() {
     let h = parseInt(prompt('Number of hours of work per month?'));
-    global = {
+     this.global = {
       h
     };
-    configG = JSON.parse(localStorage.getItem('config'));
+     this.configG = JSON.parse(localStorage.getItem('config'));
     if (JSON.parse(localStorage.getItem('config')) === null) {
-      configG = [
-        global
+       this.configG = [
+         this.global
       ];
     } else {
-      configG.push(global);
+       this.configG.push( this.global);
     }
-    localStorage.setItem('config', JSON.stringify(configG));
-    validateconfiguration2();
-    return configG;
+    localStorage.setItem('config', JSON.stringify( this.configG));
+     this.validateconfiguration2();
+    return  this.configG;
   }
-  function validateconfiguration2() {
-    let option = configuration2();
-    switch (option) {
+   validateconfiguration2() {
+     this.option =  this.configuration2();
+    switch ( this.option) {
       case 1:
-        name2();
+         this.name2();
         break;
       case 2:
-        salaryMin2();
+         this.salaryMin2();
         break;
       case 3:
-        minRetention2();
+         this.minRetention2();
         break;
       case 4:
-        percentage2();
+         this.percentage2();
         break;
       case 5:
-        maxSalary2();
+         this.maxSalary2();
         break;
       case 6:
-        aux2();
+         this.aux2();
         break;
       case 7:
-        horasM2();
+         this.horasM2();
         break;
       case 8:
-        validate2();
+         this.validate2();
         break;
       case 0:
         alert('Bay');
         break;
       default:
-        validateconfiguration2();
+         this.validateconfiguration2();
         break;
     }
   }
-  function continuar2() {
+ continuar2() {
     let option = parseInt(prompt(`
   1. Employee management
   2. Record of hours worked
@@ -847,7 +847,7 @@
   0. Quit the program`));
     return option;
   }
-  function gestionEmpleados2() {
+ gestionEmpleados2() {
     let option = parseInt(prompt(`
   1. Add
   2. Modify
@@ -856,20 +856,20 @@
   0. Quit the program`));
     return option;
   }
-  function validateGestion2() {
-    let option = gestionEmpleados2();
-    switch (option) {
+   validateGestion2() {
+     this.option =  this.gestionEmpleados2();
+    switch ( this.option) {
       case 1:
-        add2();
+         this.add2();
         break;
       case 2:
-        edit2();
+         this.edit2();
         break;
       case 3:
-        eliminar2();
+         this.eliminar2();
         break;
       case 4:
-        validatecontinuar2();
+         this.validatecontinuar2();
         break;
       case 0:
         alert('Bay');
@@ -878,15 +878,15 @@
         break;
     }
   }
-  function add2() {
-    empleados = JSON.parse(localStorage.getItem('empleados'));
-    if (empleados === null) {
+  add2() {
+     this.empleados = JSON.parse(localStorage.getItem('empleados'));
+    if ( this.empleados === null) {
       var cedula = prompt(`New employee ID card?`);
     } else {
       let flag = false;
       do {
         var cedula = parseInt(prompt(`New employee ID card?`));
-        for (let config of empleados) {
+        for (let config of  this.empleados) {
           for (let e in config) {
             if (config[e] === cedula) {
               flag = config[e];
@@ -902,55 +902,55 @@
     flag = false;
     do {
       var salario = parseInt(prompt(`Salary of the new employee?`));
-      for (config of empleados) {
-        for (e in config) {
+      for (config of  this.empleados) {
+        for (let e in config) {
           if (e === 'salary') {
             flag = config[e];
           }
         }
       }
     } while (salario < flag);
-    empleados = JSON.parse(localStorage.getItem('empleados'));
-    let personal = {
+     this.empleados = JSON.parse(localStorage.getItem('empleados'));
+     this.personal = {
       cedula,
       nombre,
       apellido,
       cargo,
       salario
     };
-    if (empleados === null) {
-      empleados = [
-        personal
+    if ( this.empleados === null) {
+       this.empleados = [
+         this.personal
       ];
     } else {
-      empleados.push(personal);
+       this.empleados.push( this.personal);
     }
     localStorage.setItem('empleados', JSON.stringify(empleados));
-    validateGestion2();
-    return personal;
+     this.validateGestion2();
+    return  this.personal;
   }
-  function edit2() {
+  edit2() {
     let empleados = JSON.parse(localStorage.getItem('empleados'));
     var object = 0;
     var flag = false;
     do {
       var cedula = parseInt(prompt(`Please enter the ID number?`));
-      for (i = 0; i < empleados.length; i++) {
-        for (let datas in empleados[i]) {
-          if (empleados[i][datas] === cedula) {
+      for (i = 0; i <  this.empleados.length; i++) {
+        for (let datas in  this.empleados[i]) {
+          if ( this.empleados[i][datas] === cedula) {
             flag = true;
             object = i;
           }
         }
       }
     } while (flag === false);
-    if (empleados === null) {
+    if ( this.empleados === null) {
       var cedula = parseInt(prompt(`New Employee ID Card?`));
     } else {
       let flag = false;
       do {
         var cedula = parseInt(prompt(`New Employee ID Card?`));
-        for (let config of empleados) {
+        for (let config of  this.empleados) {
           for (let e in config) {
             if (config[e] === cedula) {
               flag = config[e];
@@ -962,48 +962,48 @@
     let nombre = prompt(`Name of new employee?`);
     let apellido = prompt(`Surname of the new employee?`);
     let cargo = prompt(`New Employee Charge?`);
-    let configG = JSON.parse(localStorage.getItem('config'));
+     this.configG = JSON.parse(localStorage.getItem('config'));
     flag = false;
     do {
       var salario = parseInt(prompt(`Salary of the new employee?`));
-      for (config of configG) {
-        for (e in config) {
+      for (config of  this.configG) {
+        for (let e in config) {
           if (e === 'salary') {
             flag = config[e];
           }
         }
       }
     } while (salario < flag);
-    empleados = JSON.parse(localStorage.getItem('empleados'));
-    let personal = {
+     this.empleados = JSON.parse(localStorage.getItem('empleados'));
+    this.personal = {
       cedula,
       nombre,
       apellido,
       cargo,
       salario
     };
-    empleados[object] = personal;
-    localStorage.setItem('empleados', JSON.stringify(empleados));
-    validateGestion2();
-    return empleados;
+     this.empleados[object] =  this.personal;
+    localStorage.setItem('empleados', JSON.stringify( this.empleados));
+     this.validateGestion2();
+    return  this.empleados;
   }
-  function eliminar2() {
-    let empleados = JSON.parse(localStorage.getItem('empleados'));
+  eliminar2() {
+     this.empleados = JSON.parse(localStorage.getItem('empleados'));
     let flag = false;
     let cedula = parseInt(prompt('Identification number of the employee you want to delete?'));
     var object = 0;
-    for (let i = 0; i < empleados.length; i++) {
-      for (let emple in empleados[i]) {
-        if (empleados[i][emple] === cedula) {
+    for (let i = 0; i <  this.empleados.length; i++) {
+      for (let emple in  this.empleados[i]) {
+        if ( this.empleados[i][emple] === cedula) {
           var object = i;
           flag = true;
           if (flag === true) {
-            var con = confirm(`Delete the ${empleados[object].nombre} ${empleados[object].apellido}`);
+            var con = confirm(`Delete the ${ this.empleados[object].nombre} ${ this.empleados[object].apellido}`);
             if (con) {
               flag = true;
             } else {
               flag = false;
-              validateGestion2();
+               this.validateGestion2();
               break;
             }
           }
@@ -1014,16 +1014,16 @@
       alert(`The ID number ${cedula} Not registered`);
     }
     if (flag) {
-      empleados.splice(object, 1);
+       this.empleados.splice(object, 1);
     }
-    localStorage.setItem('empleados', JSON.stringify(empleados));
-    validateGestion2();
-    return empleados;
+    localStorage.setItem('empleados', JSON.stringify( this.empleados));
+     this.validateGestion2();
+    return  this.empleados;
   }
-  function hoursLab2() {
+hoursLab2() {
     if (JSON.parse(localStorage.getItem('config')) === null || JSON.parse(localStorage.getItem('empleados')) === null) {
       alert('You have not set up your system or have no registered employees');
-      validate2();
+       this.validate2();
     } else {
       var hoursMin = 0;
       let hoursConfig = JSON.parse(localStorage.getItem('config'));
@@ -1110,7 +1110,7 @@
           daytimeExtraSundayHours,
           nightExtraSundayHours
         };
-        let vHoursLab = {
+         this.vHoursLab = {
           'Horas Diurnas': hoursDay * daytimeHours,
           'Horas Nocturnas': hoursNight * nightHours,
           'Horas Dominicales Diurnas': daySundayHours * daytimeSundayHours,
@@ -1120,30 +1120,30 @@
           'Horas Dominicales Extra Diurnas': hoursSundayExtraDay * daytimeExtraSundayHours,
           'Horas Dominicales Extra Nocturnas': hoursSundayExtraNight * nightExtraSundayHours
         };
-        let hoursLaborales = {
+         this.hoursLaborales = {
           id,
           hoursLaborable,
           vHoursLab
         };
-        let horasLaboradas = JSON.parse(localStorage.getItem('horasLaboradas'));
-        if (horasLaboradas === null) {
-          let horasLaboradas = [hoursLaborales];
-          localStorage.setItem('horasLaboradas', JSON.stringify(horasLaboradas));
+         this.horasLaboradas = JSON.parse(localStorage.getItem('horasLaboradas'));
+        if ( this.horasLaboradas === null) {
+           this.horasLaboradas = [hoursLaborales];
+          localStorage.setItem('horasLaboradas', JSON.stringify( this.horasLaboradas));
         } else {
-          horasLaboradas.push(hoursLaborales);
-          localStorage.setItem('horasLaboradas', JSON.stringify(horasLaboradas));
+          horasLaboradas.push( this.hoursLaborales);
+          localStorage.setItem('horasLaboradas', JSON.stringify( this.horasLaboradas));
         }
-        validatecontinuar2();
+         this.validatecontinuar2();
       } else {
         alert('The employee is not registered');
-        validatecontinuar2();
+         this.validatecontinuar2();
       }
     }
   }
-  function nomina2() {
+  nomina2() {
     if ((JSON.parse(localStorage.getItem('config')) === null) || (JSON.parse(localStorage.getItem('empleados')) === null) || (JSON.parse(localStorage.getItem('horasLaboradas')) === null)) {
       alert('You have not set up your system, have no registered employees, or have no recorded hours');
-      validate2();
+       this.validate2();
     } else {
       var auxTransport = JSON.parse(localStorage.getItem('config'));
       var salary = 0;
@@ -1171,24 +1171,24 @@
           }
         }
       });
-      var array = [];
-      let empleados = JSON.parse(localStorage.getItem('empleados'));
+      this.array = [];
+       this.empleados = JSON.parse(localStorage.getItem('empleados'));
       let ant = 0;
-      for (let i = 0; i <= empleados.length - 1; i++) {
-        if (empleados[i + 1] !== undefined) {
+      for (let i = 0; i <=  this.empleados.length - 1; i++) {
+        if ( this.empleados[i + 1] !== undefined) {
 
-          if (empleados[i].cedula > empleados[i + 1].cedula) {
-            ant = empleados[i];
-            empleados[i] = empleados[i + 1];
-            empleados[i + 1] = ant;
+          if ( this.empleados[i].cedula >  this.empleados[i + 1].cedula) {
+            ant =  this.empleados[i];
+             this.empleados[i] =  this.empleados[i + 1];
+             this.empleados[i + 1] = ant;
           }
         }
       }
-      var nominas = [];
+       this.nominas = [];
       console.log(` -- Identification card -- Position -- Total to pay --`);
-      empleados.forEach((e) => {
+       this.empleados.forEach((e) => {
         let hoursLaborables = JSON.parse(localStorage.getItem('horasLaboradas'));
-        hoursLaborables.forEach((j) => {
+         this.hoursLaborables.forEach((j) => {
           if (j.id === e.cedula) {
             for (let hours in j.vHoursLab) {
               array.push(j.vHoursLab[hours]);
@@ -1234,19 +1234,19 @@
       });
     }
   }
-  function pago2() {
-    let empleados = JSON.parse(localStorage.getItem('empleados'));
+  pago2() {
+     this.empleados = JSON.parse(localStorage.getItem('empleados'));
     var config = JSON.parse(localStorage.getItem('config'));
-    if (empleados === null) {
+    if ( this.empleados === null) {
       alert('No registered employees');
-      validatecontinuar2();
+       this.validatecontinuar2();
     } else {
       let find = parseInt(prompt('Enter ID for proof of payment?'));
       var tmp = 0;
       var name = '';
       var cargo = '';
       var paguis = 0;
-      empleados.forEach((e) => {
+       this.empleados.forEach((e) => {
         if (e.cedula === find) {
           tmp++;
           name = e.nombre;
@@ -1261,7 +1261,7 @@
       });
       if (tmp === 0) {
         alert('The employee is not registered in the database');
-        validatecontinuar2();
+         this.validatecontinuar2();
       } else {
         console.log(`===================================================`);
         console.log('||                 Company   '+config[0].name+'    ||');
@@ -1271,66 +1271,68 @@
       }
     }
   }
-  function validatecontinuar2() {
-    let option = continuar2();
-    switch (option) { 
+  validatecontinuar2() {
+     this.option =  this.continuar2();
+    switch ( this.option) { 
       case 1:
-        validateGestion2();
+         this.validateGestion2();
         break;
       case 2:
-        hoursLab2();
+         this.hoursLab2();
         break;
       case 3:
-        nomina2();
+         this.nomina2();
         break;
       case 4:
         pago2();
         break;
       case 8:
-      validate2 ();
+       this.validate2 ();
       case 0:
         alert('End');
         break;
       default:
-        validatecontinuar2();
+         this.validatecontinuar2();
         break;
     }
   }
-  function inicio (){
-  let opt = idioma2();
-        switch (opt) {
+inicio (){
+   this.opt =  this.idioma2();
+        switch ( this.opt) {
           case 1:
-            validate();
+             this.validate();
             break;
           case 2:
-            validate2();
+             this.validate2();
             break;
           case 0:
             alert('End');
             break;
           default:
-            validate2();
+             this.validate2();
             break;
         }
     }
-  function validate2() {
-  let option = config2();
-    switch (option) {  
+  validate2() {
+   this.option =  this.config2();
+    switch ( this.option) {  
       case 1:
-        validateconfiguration2();
+         this.validateconfiguration2();
         break;
       case 2:
-        validatecontinuar2();
+         this.validatecontinuar2();
         break;
       case 8:
-      inicio ();
+       this.inicio ();
       break;
       case 0:
         alert('End');
         break;
       default:
-        validate2();
+         this.validate2();
         break;
     }
   }
-  inicio ();
+}
+let now = new main ();
+  now.inicio ();

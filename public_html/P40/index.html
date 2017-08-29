@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise # 40</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/myStile.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <br><br><br><br><br>
+
+    <form  id="form" class="offset-4">
+
+      <label for="formGroupExampleInput " >
+        <h3>Exercise # 40</label>
+    </h3>
+    <div>
+      <input type="text" class="form-control "  id="texto" placeholder="Name Full">
+      <label class=" col-sm-6 " for="inlineFormCustomSelect">Document Type</label>
+      <select class="custom-select " id="Type">
+        <option value="1">I.D</option>
+        <option value="2">T.I</option>
+        <option value="3">D.E</option>
+      </select>
+    </div>
+    <div>
+      <input type="text" class="form-control" id="number" placeholder="Number Id">
+      <label class="col-sm-6" for="inlineFormCustomSelect">Biological gender</label>
+      <select class="custom-select " id="Gener">
+        <option value="1">Male</option>
+        <option value="2">Female</option>
+      </select>
+    </div>
+    <div>
+      <input type="Number" class="form-control" id="heigth" placeholder="Height In CM">
+    </div>
+    <div class="col-sm-12">
+      <label  for="inlineFormCustomSelect">Is it true that I live in Cartago?</label>
+      <select class="custom-select " id="live">
+        <option value="1">True</option>
+        <option value="2">False</option>
+      </select>
+    </div>
+    <br>
+    <button onclick="evento1()" class="btn btn-primary " data-toggle="modal" data-target=".bd-example-modal-lg"><h5>Send</h5 ></button>
+
+  </form>
+
+  <div class="modal fade bd-example-modal-lg" id="Modal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header row">
+          <h2 class="modal-title col-5 offset-4"  > Exercice # 40</h2>
+          <button type=" button" class="col close" data-dismiss="modal" aria-label="Close">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body" >
+          <h3>
+            <p id="segundo"></p>
+          </h3>
+        </div>
+        <div class="modal-footer">
+          <button type=" button" class=" btn btn-primary" data-dismiss="modal" >Close</button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="../node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+  <script src="js/myScript.js" type="text/javascript"></script>
+  <script src="../node_modules/tether/dist/js/tether.min.js" type="text/javascript"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -7,14 +7,16 @@ var sumaz=0;
 
 
 	for ( i=1 ; i<=10; i++) {
+            
 	arreglo[i] = prompt( "enter num ");
       
-	if (arreglo[i] % 2 === 0 ){ 
-	p=p+1;
-	 sumap=(sumap+arreglo[i]);
-  }else{
-	 z=z+1;
+	if ( arreglo[i]/ i === Math.round(arreglo[i]/i) && i!==1 && i!== arreglo[i]){ 
+	
+         z=z+1;
 	sumaz=sumaz+arreglo[i];
+  }else{
+	 p=p+1;
+	 sumap=(sumap+arreglo[i]);
 	
   }
 	
@@ -36,7 +38,7 @@ var sumaz=0;
 		console.log(" Prime numbers are " );
 		for ( i=1 ; i<=10; i++ ){
 	
-			if( arreglo[i] % 2=== 1){  
+			if ( arreglo[i]/ i === Math.round(arreglo[i]/i) && i!==1 && i!== arreglo[i]){  
 			console.log (arreglo[i]);
             }
          }

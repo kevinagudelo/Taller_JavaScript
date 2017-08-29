@@ -9,7 +9,7 @@ for (i = 1; i <NUM0;i++)
 		break;
 
 	};
-};
+    };
 if (numeroPrimo)
 	console.log (`The number  ${NUM0} Is cousin`);
 else
