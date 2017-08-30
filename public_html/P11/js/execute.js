@@ -9,7 +9,7 @@ do {
   console.log(n ); 
   x++;
 }
-while  ( x <= 7);
+while  ( x <= max);
   
 
 
