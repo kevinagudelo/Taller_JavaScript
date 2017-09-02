@@ -5,7 +5,6 @@ function evento1() {
   );
   var a = $("#a").val();
   var b = $("#b").val();
-  console.log("hola");
   var f1 = moment(a);
   var f2 = moment(b);
   var days = (f2.diff(f1, "days"));
