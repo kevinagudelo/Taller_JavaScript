@@ -10,7 +10,7 @@ function evento1() {
 
 
 }
-//$('#Modal').modal('show');
+
 
 var datos = JSON.parse(sessionStorage.getItem('datos'));
 $('#pay').text(datos);

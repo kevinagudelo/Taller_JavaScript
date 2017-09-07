@@ -29,8 +29,8 @@ var sumaz=0;
 	console.log(" The sum of the pairs is "+sumap);
 	console.log(" The sum of the odd numbers is " +sumaz);
 	console.log("The average of even numbers is" +(sumap/p));
-    console.log(  " The average of the odd numbers is "+ (sumaz/z));
-    console.log( " Even numbers are " );
+        console.log(  " The average of the odd numbers is "+ (sumaz/z));
+        console.log( " Even numbers are " );
 		for (i=0 ; i < this.tam; i++ ){
 	
 			if (this.arreglo[i] % 2===0) { 

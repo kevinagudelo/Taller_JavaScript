@@ -9,7 +9,7 @@ var x = 1 ;
 var max = 7 ;
 
 do {
-  n = n + as ;
+  n += as ;
   $('#myModal').append(n , "<br>" );
 
   
@@ -17,9 +17,6 @@ do {
 }
 while  ( x <= max);
   
-    
-
-
    
     });
 });
