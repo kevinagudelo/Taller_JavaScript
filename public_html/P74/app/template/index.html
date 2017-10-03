@@ -1,0 +1,14 @@
+<br><br><br>
+
+<div ng-controller="LogController" class="offset-md-4">
+  <form>
+    <input type="text" class="form-control col-md-3" ng-model="message"  placeholder="Write Here ">
+    <br>
+    {{ message }}
+    <div ng-bind="$log.log(message)" ></div>
+    <div ng-bind="$log.warn(message)" ></div>
+    <div ng-bind="$log.info(message)" ></div>
+    <div ng-bind="$log.error(message)" ></div>
+    <div ng-bind="$log.debug(message)" ></div>
+  </form>
+</div>

@@ -1,0 +1,9 @@
+<br><br><br>
+<div ng-controller="LogController" class="offset-md-4">
+  <p>Reload this page with open console, enter text and hit the log button...</p>
+  <button ng-click="$log.log(message)" class="btn btn-primary">Log</button>
+  <button ng-click="$log.warn(message)" class="btn btn-warning">Warn</button>
+  <button ng-click="$log.info(message)" class="btn btn-info">Info</button>
+  <button ng-click="$log.error(message)"class="btn btn-danger" >Error</button>
+  <button ng-click="$log.debug(message)" class="btn btn-success">Debug</button>
+</div>

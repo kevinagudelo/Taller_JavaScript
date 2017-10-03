@@ -1,11 +1,5 @@
 
 
-
-
- 
- 
- /* global myArr */
-
 var i;
  
 
@@ -27,24 +21,23 @@ var arreglo =  [] ;
 function aleato (){
 
 let max=Number(prompt("Ingrese el maximo del arreglo"));
- for  (i = 0 ; i < max ;i++){
-   arreglo[i]=Math.round((Math.random())*100);
+ for  (i = 0 ; i <= max ;i++){
+   arreglo[i]=Math.round((Math.random())*10);
  }
  return max;
 }
 function sequential (){
-
+        var temp = false ;
 	 var value=Number(prompt("Enter the sequential value"));
-	
-	for ( i = 0 ;i < arreglo.length ; i++ ){
-		if  (arreglo[i]=== value){
+          arreglo.forEach((e,i )=> {
+             if  (e === value){
 			console.log( "The value "+value+"Is in the position" +i);
-            break;
-			
-		  }else {
-		console.log( "The value you want to search is not in the array");
-        break;
-      }			
+		  }else  {
+                      temp = true;
+                  }			
+    });
+    if (temp) {
+        console.log ("the value entered was not found ");
     }
   } 
 
