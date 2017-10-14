@@ -1,8 +1,34 @@
 angular.module('punto73').controller('formularioController', ['$scope', function ($scope) {
+    $scope.search = function () {
+      if (!$scope.array) {
+        $scope.array = [$scope.data];
+      } else {
+        $scope.array.forEach((person) => {
+          for (let name in person) {
+            if (person[name] === $scope.dato.search) {
+              console.log(person);
+              break;
+            }
+          }
+        });
+      }
+    };
+    $scope.edit = function (persona) {
+      for (let data of $scope.array) {
+        if (persona.email == data.email) {
+          $scope.data = data;
+          $scope.dangerAlert = false;
+        }
+      }
+    };
+    $scope.reset = function () {
+      delete $scope.data;
+    };
     $scope.guardarDatos = function () {
       $scope.noRepeat = false;
       $scope.noRepeat2 = false;
       $scope.dangerAlert = false;
+
       if (!$scope.array) {
         $scope.array = [$scope.data];
       } else {
@@ -24,8 +50,6 @@ angular.module('punto73').controller('formularioController', ['$scope', function
         });
         if (($scope.noRepeat == false) && ($scope.noRepeat2 == false)) {
           $scope.array.push($scope.data);
-        } else {
-          console.log("no entra");
         }
       }
       ;

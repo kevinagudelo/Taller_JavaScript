@@ -1,0 +1,92 @@
+<body style="background: #000">
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar navbar-inverse bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Phone Book</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0            ">
+        <input  ng-model="dato.search"class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" ng-click="search()">Search</button>
+
+      </form>
+    </div>
+  </nav>
+
+  <div class="container container-fluid " style="margin-top: 20px">
+    <form class="jumbotron " ng-submit="guardarDatos()">
+      <div class="form-group">
+        <label for="name" class="col-sm-4 control-label">Contact Name</label>
+        <div class="col-sm-10">
+          <input ng-model="data.name" type="text" class="form-control" id="name" placeholder="Name" required ng-trim="true">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="surname" class="col-sm-4 control-label">Contact Surname
+        </label>
+        <div class="col-sm-10">
+          <input ng-model="data.surname" type="text" class="form-control" id="surname" placeholder="Surname" required ng-trim="true">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone" class="col-sm-4 control-label">Contact Phone
+        </label>
+        <div class="col-sm-10">
+          <input ng-model="data.phone" type="text" class="form-control" id="phone" placeholder="Phone" required ng-trim="true">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address" class="col-sm-4 control-label">Contact Address
+        </label>
+        <div class="col-sm-10">
+          <input ng-model="data.address" type="text" class="form-control" id="address" placeholder="Address" required ng-trim="true">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email" class="col-sm-4 control-label">Contact Email
+        </label>
+        <div class="col-sm-10">
+          <input ng-model="data.email" type="email" class="form-control" id="email" placeholder="Email" required ng-trim="true">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-danger">Send</button>
+          <button type="reset" class="btn btn-primary" ng-click="reset()">Reset</button>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10">
+
+        </div>
+        <div class="col-sm-offset-2 col-sm-10">
+
+        </div>
+      </div>
+
+    </form>
+    <div class="form-group" ng-show="dangerAlert" >
+      <div class="alert alert-danger" >
+        Email or Phone Duplicated
+      </div>
+    </div>
+    <div class="col-md-4 offset-md-3">
+      <div>
+        <h2 style="color:  #c9302c"> List of Contacts </h2>
+      </div>
+      <br><br>
+      <details id="details" ng-open="open"  class="list-group-item" ng-repeat="persona in array" >
+        <summary  > {{persona.name}} <button class="btn btn-secondary btn-group-sm offset-5" style="margin-right: auto" ng-click="edit(persona)"> Edit</button> </summary>
+        <ul >
+          <li> <b>Surname :</b> {{persona.surname}}</li>
+          <li> <b>Phone :</b> {{persona.phone}}</li>
+          <li> <b>Address :</b> {{persona.address}}</li>
+          <li> <b>Email :</b> {{persona.email}}</li>
+        </ul>
+      </details>
+
+    </div>
+  </div>
+</body>

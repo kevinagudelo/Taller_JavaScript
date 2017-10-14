@@ -1,5 +1,5 @@
 
-angular.module('punto73').controller('formularioController', ['$scope', 'databaseService', '$localStorage', '$webSql', function ($scope, databaseService, $localStorage, $webSql, ) {
+angular.module('punto73').controller('formularioController', ['$scope', 'databaseService', '$webSql', function ($scope, databaseService, $webSql, ) {
     $scope.noRepeat = false;
     $scope.noRepeat2 = false;
     $scope.dangerAlert = false;
@@ -31,41 +31,20 @@ angular.module('punto73').controller('formularioController', ['$scope', 'databas
         "default": "CURRENT_TIMESTAMP" // default value
       }
     });
-    if ($localStorage.misDatos) {
-      $scope.array = $localStorage.misDatos;
-    }
-    $scope.prueba = function () {
 
+
+
+
+
+    $scope.guardarDatos = function () {
+      $scope.db.insert('user', {"name": $scope.data.name, "surname": $scope.data.surname, 'phone': $scope.data.phone, "address": $scope.data.address, "email": $scope.data.email});
       $scope.db.selectAll("user").then(function (results) {
         $scope.users = [];
+
         for (var i = 0; i < results.rows.length; i++) {
           $scope.users.push(results.rows.item(i));
+          console.log($scope.users[0]);
         }
-        console.log($scope.users.email);
       })
-
-//      $scope.db.select("user", {
-//        "rowid": {
-//          "value": '1'
-//        }
-//      }).then(function (results) {
-//        $scope.users = [];
-//        for (i = 0; i < results.rows.length; i++) {
-//          $scope.users.push(results.rows.item(i));
-//        }
-//        console.log($scope.users[0].name);
-//      })
-
-
     };
-    $scope.guardarDatos = function () {
-
-      $scope.db.insert('user', {"name": $scope.data.name, "surname": $scope.data.surname, 'phone': $scope.data.phone, "address": $scope.data.address, "email": $scope.data.email});
-      $scope.array = [$scope.data];
-
-      databaseService.insert($scope.array);
-      $scope.data = {};
-    };
-    $scope.array = $localStorage.misDatos;
-
   }]);

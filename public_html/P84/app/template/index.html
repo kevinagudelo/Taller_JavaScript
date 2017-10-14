@@ -1,5 +1,5 @@
 <div class="container container-fluid" style="margin-top: 20px">
-  <h2 class="offset-md-4">Phonebook</h2>
+  <h2 class="offset-md-4" style="color:  #c9302c">Phonebook</h2>
   <form class=" " ng-submit="guardarDatos()">
     <div class="form-group">
       <label for="name" class="col-sm-4 control-label">Contact Name</label>
@@ -37,7 +37,10 @@
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-danger">Sign in</button>
+        <button type="submit" class="btn btn-danger">Send</button>
+        <button type="reset" class="btn btn-primary" ng-click="reset()">Reset</button>
+      </div>
+      <div class="col-sm-offset-2 col-sm-10">
 
       </div>
       <div class="col-sm-offset-2 col-sm-10">
@@ -51,20 +54,34 @@
       Email or Phone Duplicated
     </div>
   </div>
-  <div class="col-md-6 offset-md-3">
-    <div>
-      <h2> List Of Contacts </h2>
-    </div>
-    <br><br>
-    <details id="details" ng-open="open"  class="list-group-item" ng-repeat="persona in array" >
-      <summary  > {{persona.name}}</summary>
-      <ul >
-        <li> <b>Surname :</b> {{persona.surname}}</li>
-        <li> <b>Phone :</b> {{persona.phone}}</li>
-        <li> <b>Address :</b> {{persona.address}}</li>
-        <li> <b>Email :</b> {{persona.email}}</li>
-      </ul>
-    </details>
-
+  <div class="offset-md-5">
+    <h1>Search by Code</h1>
   </div>
-</div>
+  <br><br><br>
+  <div>
+    <form class=" offset-md-4">
+      <div class="form-group row">
+        <label  class="col-md-4 col-form-label"><h4>Code By Book To Search </h4></label>
+        <div class="col-md-3">
+          <input class="form-control" type="text"  id="codeserch" placeholder="Code Book">
+        </div>
+      </div>
+      <button   type="button"  id="searchcode" class="btn btn-danger col-md-2 form-control offset-md-5"  >Search</button>
+    </form>
+    <div class="col-md-6 offset-md-3">
+      <div>
+        <h2 style="color:  #c9302c"> List of Contacts </h2>
+      </div>
+      <br><br>
+      <details id="details" ng-open="open"  class="list-group-item" ng-repeat="persona in array" >
+        <summary  > {{persona.name}} <button class="btn btn-secondary btn-group-sm offset-5" style="margin-right: auto" ng-click="edit(persona)"> Edit</button> </summary>
+        <ul >
+          <li> <b>Surname :</b> {{persona.surname}}</li>
+          <li> <b>Phone :</b> {{persona.phone}}</li>
+          <li> <b>Address :</b> {{persona.address}}</li>
+          <li> <b>Email :</b> {{persona.email}}</li>
+        </ul>
+      </details>
+
+    </div>
+  </div>
